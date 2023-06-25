@@ -1,11 +1,20 @@
-
+import { useEffect } from "react";
 import "./App.css";
 
-function App() {
+import { fetchDateFromApi } from "./utils/api.js";
 
-  return (
-      <div> APP</div>
-  );
+function App() {
+  useEffect(() => {
+    apiTestiong();
+  }, []);
+
+  const apiTestiong = () => {
+    fetchDateFromApi("/movie/popular").then((res) => {
+      console.log(res);
+    });
+  };
+
+  return <div> APP</div>;
 }
 
 export default App;
